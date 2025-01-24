@@ -10,9 +10,17 @@ def read_file(file_path):
         if file_extension == 'csv':
             # Read CSV file
             df = pd.read_csv(file_path)
+            if "date" in df.columns:
+                df["date"] = df["date"].apply(lambda val: pd.to_datetime(val))
+            elif "Date" in df.columns:
+                df["Date"] = df["Date"].apply(lambda val: pd.to_datetime(val))
         elif file_extension == 'parquet':
             # Read Parquet file
             df = pd.read_parquet(file_path)
+            if "date" in df.columns:
+                df["date"] = df["date"].apply(lambda val: pd.to_datetime(val))
+            elif "Date" in df.columns:
+                df["Date"] = df["Date"].apply(lambda val: pd.to_datetime(val))
         else:
             raise ValueError(f"Unsupported file format: {file_extension}")
     except Exception as e:
@@ -36,26 +44,38 @@ def write_file(df, file_path):
             raise ValueError(f"Unsupported file type: {file_extension}")
     except Exception as e:
         raise ValueError(f"Error writing file: {e}")
-    
+
+
+
 # Calculate log returns
-def calculate_log_returns(data, delta = 1, column_name='Close'):
-    data = data.drop(columns=['Open', 'High', 'Low', 'Adj Close', 'Volume'])
-    data['Log_Return'] = np.log(data[column_name] / data[column_name].shift(delta))
+def calculate_log_returns(data, column_name='Close'):
+
+    data['Log_Return'] = np.log(data[column_name] / data[column_name].shift(1))
     data = data.dropna() 
+    data = data.rename({"Date":"date"}, axis = 1)
+    
     return data
 
-def classify_returns(df, column_name, gamma):
-    
-    def classify_return(x):
-        if x > gamma:
-            return 1  # Positive return
-        elif x < -gamma:
-            return -1  # Negative return
-        else:
-            return 0  # Stable return
-    
-    df['Return_Label'] = df[column_name].apply(classify_return)
-    return df
+#For Doge Coin merge with sentiment data
+def process_and_merge_data_continous_price(sentiment_data,doge_price):
+
+    # Round up 'date' to the nearest minute
+    sentiment_data['date'] = sentiment_data['date'].dt.ceil('T')  # 'T' stands for minute
+
+    # Make timezones consistent
+    sentiment_data['date'] = sentiment_data['date'].dt.tz_localize('UTC')
+
+    # Merge the DataFrames on the 'date' key
+    merged_data = pd.merge(
+        sentiment_data,
+        doge_price,
+        on='date',
+        how='left'  # Use 'inner' to keep only matching rows
+    )
+
+    return merged_data
+
+
 
 def calculate_sharpe_ratio(df, return_column='Strategy_Return'):
     """
