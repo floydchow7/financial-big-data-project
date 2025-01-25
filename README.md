@@ -45,7 +45,6 @@ pip install -r requirements.txt
 **NOTE**: The needed package `pyinform` supports **Linux**, **OS X** and **Windows**. Please run this project in these systems to avoid unsupported error from the package.
 
 
-
 4. **Ensure to have downloaded all the necessary data**: 
 
 
