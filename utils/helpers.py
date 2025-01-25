@@ -62,6 +62,7 @@ def process_and_merge_data_continous_price(sentiment_data,doge_price):
     # Round up 'date' to the nearest minute
     sentiment_data['date'] = sentiment_data['date'].dt.ceil('T')  # 'T' stands for minute
 
+    sentiment_data = sentiment_data.groupby('date',as_index=False).agg({'Sentiment':'mean'})
     # Make timezones consistent
     sentiment_data['date'] = sentiment_data['date'].dt.tz_localize('UTC')
 
