@@ -13,6 +13,10 @@ This is the github repository for the project from EPFL FIN-525: Financial Big D
 
 ## Introduction
 
+This repository contains the implementation of a sentiment-driven arbitrage trading strategy based on local lagged transfer entropy. The goal is to develop a profitable trading strategy by modeling the directed information flow from media sentiment scores to asset prices. The strategy is built by defining a set of threshold and lag parameters, which are optimized by maximizing the Sharpe ratio through a rolling optimization process.
+
+The code provides frameworks for analyzing four distinct cases of directed information flow, each with its own independent optimization approach. The effectiveness of the strategy is evaluated by calculating cumulative returns over rolling test sets, assessing both profitability and robustness. This repository offers the full implementation to replicate and test the strategy.
+
 ## Getting Started
 
 **Before running the project, please ensure you:**
