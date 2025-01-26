@@ -101,3 +101,4 @@ The authors of the project are:
 
 - Mert Ülgüner ([@mulguner](https://github.com/mulguner))
 - Zhuofu Zhou ([@floydchow7](https://github.com/floydchow7))
+- Hamza Karime ([@Crqbu](https://github.com/Crqbu))
