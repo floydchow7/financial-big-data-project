@@ -83,13 +83,15 @@ pip install -r requirements.txt
     ```
     4.4 Change the constant parameters in [`utils/constants.py`](utils/constants.py).
 
-    4.5 (Optional) Run the notebook [`1.data_extractor.ipynb`](1.data_extractor.ipynb) to extract the dataset. Noted that the repo has provided the needed data for analysis in the `data` folder.
+    4.5 (Optional) Run the notebook [`1.data_extractor.ipynb`](1.data_extractor.ipynb) to extract the dataset. Noted that the repo has provided the needed data for analysis in the `data` folder. You **DO NOT** need to run this notebook.
 
 
 
 ## Result Reproduction
 
 Run the notebook [`3.main_analysis.ipynb`](3.main_analysis.ipynb) for result reproduction. 
+
+**Important**: The `Switch` argument controls whether to run the full analysis or a demo workflow based on TSLA stock price. The `Switch` argument is **by default** set to False, which allows the demo workflow to display. 
 
 Noted that due to the number of the CPU cores of the machine, the runtime of the code may vary.
 
