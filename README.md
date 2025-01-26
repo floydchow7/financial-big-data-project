@@ -34,7 +34,7 @@ python3 -m venv myenv
 source myenv/bin/activate
 ```
 
-If you're using conda, refer to the follows:
+If you're using conda, refer to the following code:
 
 ```
 conda create -n myenv python=3.12
@@ -83,7 +83,7 @@ pip install -r requirements.txt
     ```
     4.4 Change the constant parameters in [`utils/constants.py`](utils/constants.py).
 
-    4.5 Run the notebook [`1.data_extractor.ipynb`](1.data_extractor.ipynb) to extract the dataset.
+    4.5 (Optional) Run the notebook [`1.data_extractor.ipynb`](1.data_extractor.ipynb) to extract the dataset. Noted that the repo has provided the needed data for analysis in the `data` folder.
 
 
 
