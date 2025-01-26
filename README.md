@@ -83,7 +83,7 @@ pip install -r requirements.txt
     ```
     4.4 Change the constant parameters in [`utils/constants.py`](utils/constants.py).
 
-    4.5 (Optional) Run the notebook [`1.data_extractor.ipynb`](1.data_extractor.ipynb) to extract the dataset. Noted that the repo has provided the needed data for analysis in the `data` folder. You **DO NOT** need to run this notebook if you would like to run from stratch.
+    4.5 (Optional) Run the notebook [`1.data_extractor.ipynb`](1.data_extractor.ipynb) to extract the dataset. Noted that the repo has provided the needed data for analysis in the `data` folder. You **DO NOT** need to run this notebook if you would not like to run from stratch.
 
 
 
