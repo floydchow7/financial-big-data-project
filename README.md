@@ -52,7 +52,7 @@ pip install -r requirements.txt
 4. **Ensure to have downloaded all the necessary data**: 
 
 
-    4.1. Download the [FNSPID Financial News](https://huggingface.co/datasets/Zihan1004/FNSPID) dataset from Huggingface, or download it directly from the [Switch Drive](https://drive.switch.ch/index.php/s/85mUcKuNC6OtjaE).
+    4.1. Download the [FNSPID Financial News](https://huggingface.co/datasets/Zihan1004/FNSPID) dataset from Huggingface, or download it directly from the [Switch Drive](https://drive.switch.ch/index.php/s/85mUcKuNC6OtjaE). Move the full data to `data/raw/` folder.
 
 
     4.2. Make sure that you have an available [Binance API](https://www.binance.com/en/binance-api) key before you run the notebook.
